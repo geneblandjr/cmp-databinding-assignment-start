@@ -17,9 +17,12 @@ export class GamecontrolComponent implements OnInit {
        this.gameCounter = setInterval(this.counter, 1000);
     }
     counter() {
-        this.myCurrentCount = this.myCurrentCount + 1;
+        console.log(this.myCurrentCount);
+        this.myCurrentCount =  1;
+        console.log(this.myCurrentCount);
     }
     onStopGame() {
         clearInterval(this.gameCounter);
+        console.log(this.myCurrentCount);
     }
 }
