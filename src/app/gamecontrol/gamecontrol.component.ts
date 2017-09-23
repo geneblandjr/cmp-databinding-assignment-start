@@ -6,23 +6,29 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./gamecontrol.component.css']
 })
 export class GamecontrolComponent implements OnInit {
+    myCurrentCount = 1;
     @Output() gameStarted = new EventEmitter<{myCurrentCount: number}>();
-    myCurrentCount = 0;
-    gameCounter: any = null;
+
+    gameCounter;
     constructor() { }
 
     ngOnInit() {
     }
+
+    myCounter() {
+        console.log("In myCounter, before:" + this.myCurrentCount);
+        this.myCurrentCount++;
+ //       this.myCurrentCount = myCurrentCount;
+        console.log("In myCounter, after:" + this.myCurrentCount);
+    }
+
     onStartGame() {
-       this.gameCounter = setInterval(this.counter, 1000);
-    }
-    counter() {
         console.log(this.myCurrentCount);
-        this.myCurrentCount =  1;
-        console.log(this.myCurrentCount);
+        this.gameCounter = setInterval(() => {this.myCounter();}, 1000);
     }
+
     onStopGame() {
         clearInterval(this.gameCounter);
-        console.log(this.myCurrentCount);
+        console.log("At onStopGame point: "+this.myCurrentCount);
     }
 }

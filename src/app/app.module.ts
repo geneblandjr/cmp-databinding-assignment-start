@@ -8,6 +8,7 @@ import { OddComponent } from './odd/odd.component';
 import { EvenComponent } from './even/even.component';
 import { GamecontrolComponent } from './gamecontrol/gamecontrol.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
